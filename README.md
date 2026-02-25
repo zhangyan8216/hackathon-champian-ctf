@@ -81,4 +81,8 @@ python3 LILCTF2025_TRAINING.py
 
 ---
 
+## 🔗 GitHub
+
+**仓库**: https://github.com/zhangyan8216/ctf-tools
+
 **持续维护中...**
