@@ -1,0 +1,16 @@
+{
+    "timestamp": "2026-02-25T20:15:41.832143",
+    "total_challenges": 85,
+    "total_platforms": 9,
+    "success_rate": "90.6%",
+    "commits": 15,
+    "capabilities": {
+        "Web\u5b89\u5168": "SQLi, XSS, SSRF, XXE, SSTI, Deserialization, LFI, RFI, Race Condition",
+        "\u5bc6\u7801\u5b66": "RSA, AES, ECC, Lattice, Post-Quantum, ZK-SNARKs, Homomorphic",
+        "\u4e8c\u8fdb\u5236": "BOF, ROP, ret2libc, Format String, Heap, Kernel, KASLR",
+        "\u9006\u5411": "Static, Dynamic, Anti-Debug, Binary Patching, Android, eBPF",
+        "\u53d6\u8bc1": "PCAP, Memory Dump, Stego, Container Escape, eBPF"
+    },
+    "git_repository": "https://github.com/zhangyan8216/hackathon-champian-ctf",
+    "status": "\u6301\u7eed\u8fed\u4ee3\u4e2d"
+}
