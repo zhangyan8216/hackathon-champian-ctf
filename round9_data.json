@@ -1,0 +1,87 @@
+{
+    "round": 9,
+    "platforms": {
+        "HITCON": {
+            "description": "HITCON CTF (Hacker in Taiwan)",
+            "platform": "HITCON",
+            "challenges": [
+                {
+                    "name": "Web_Exploit",
+                    "cat": "Web",
+                    "points": 130,
+                    "tech": [
+                        "advanced"
+                    ]
+                },
+                {
+                    "name": "Bin_Exploit",
+                    "cat": "Pwn",
+                    "points": 150,
+                    "tech": [
+                        "binary"
+                    ]
+                }
+            ]
+        },
+        "CyCon": {
+            "description": "CyCon CTF (Cyber Conference)",
+            "platform": "CyCon",
+            "challenges": [
+                {
+                    "name": "Crypto_Challenge",
+                    "cat": "Crypto",
+                    "points": 140,
+                    "tech": [
+                        "advanced"
+                    ]
+                },
+                {
+                    "name": "Misc_Challenge",
+                    "cat": "Misc",
+                    "points": 110,
+                    "tech": [
+                        "forensics"
+                    ]
+                }
+            ]
+        },
+        "SUCTF": {
+            "description": "SU-CTF (\u82cf\u5dde\u5927\u5b66CTF)",
+            "platform": "SUCTF",
+            "challenges": [
+                {
+                    "name": "Web_Basic",
+                    "cat": "Web",
+                    "points": 70,
+                    "tech": [
+                        "injection"
+                    ]
+                },
+                {
+                    "name": "Crypto_Beginner",
+                    "cat": "Crypto",
+                    "points": 90,
+                    "tech": [
+                        "basic"
+                    ]
+                },
+                {
+                    "name": "Reverse_Challenge",
+                    "cat": "Reverse",
+                    "points": 100,
+                    "tech": [
+                        "static"
+                    ]
+                }
+            ]
+        }
+    },
+    "total_challenges": 7,
+    "total_points": 790,
+    "all_platforms": [
+        "HITCON",
+        "CyCon",
+        "SUCTF"
+    ],
+    "timestamp": "2026-02-25 21:17:05"
+}
