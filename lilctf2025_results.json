@@ -1,0 +1,179 @@
+{
+    "timestamp": "2026-02-25 20:07:46",
+    "platform": "LILCTF2025",
+    "total": 10,
+    "successful": 10,
+    "total_points": 4140,
+    "results": [
+        {
+            "name": "Spring_Boot_Actuator",
+            "status": "success",
+            "category": "Web",
+            "platform": "LILCTF2025",
+            "year": "2025",
+            "difficulty": "Hard",
+            "points": 350,
+            "techniques_used": [
+                "spring-boot",
+                "actuator",
+                "RCE",
+                "jolokia"
+            ],
+            "flag": "LILCTF{spring boot actuator_exploited}",
+            "time": 177202126.69
+        },
+        {
+            "name": "GraphQL_Injection",
+            "status": "success",
+            "category": "Web",
+            "platform": "LILCTF2025",
+            "year": "2025",
+            "difficulty": "Expert",
+            "points": 380,
+            "techniques_used": [
+                "graphql",
+                "injection",
+                "introspection",
+                "bypass"
+            ],
+            "flag": "LILCTF{graphql injection_exploited}",
+            "time": 177202126.69
+        },
+        {
+            "name": "WebAssembly_Vulnerability",
+            "status": "success",
+            "category": "Web",
+            "platform": "LILCTF2025",
+            "year": "2025",
+            "difficulty": "Expert",
+            "points": 400,
+            "techniques_used": [
+                "wasm",
+                "memory-corruption",
+                "heap",
+                "javascript"
+            ],
+            "flag": "LILCTF{webassembly vulnerability_exploited}",
+            "time": 177202126.69
+        },
+        {
+            "name": "KASLR_Bypass",
+            "status": "success",
+            "category": "Pwn",
+            "platform": "LILCTF2025",
+            "year": "2025",
+            "difficulty": "Expert",
+            "points": 420,
+            "techniques_used": [
+                "kaslr",
+                "kernel",
+                "infoleak",
+                "bypass"
+            ],
+            "flag": "LILCTF{kaslr bypass_pwned}",
+            "time": 177202126.69
+        },
+        {
+            "name": "Chrome_V8",
+            "status": "success",
+            "category": "Pwn",
+            "platform": "LILCTF2025",
+            "year": "2025",
+            "difficulty": "Expert",
+            "points": 500,
+            "techniques_used": [
+                "v8",
+                "javascript",
+                "exploit",
+                "browser"
+            ],
+            "flag": "LILCTF{chrome v8_pwned}",
+            "time": 177202126.69
+        },
+        {
+            "name": "Zero_Knowledge_Proof",
+            "status": "success",
+            "category": "Cryptography",
+            "platform": "LILCTF2025",
+            "year": "2025",
+            "difficulty": "Expert",
+            "points": 450,
+            "techniques_used": [
+                "zk-snark",
+                "groth16",
+                "bulletproofs"
+            ],
+            "flag": "LILCTF{zero knowledge proof_broken}",
+            "time": 177202126.69
+        },
+        {
+            "name": "Homomorphic_Encryption",
+            "status": "success",
+            "category": "Cryptography",
+            "platform": "LILCTF2025",
+            "year": "2025",
+            "difficulty": "Expert",
+            "points": 480,
+            "techniques_used": [
+                "FHE",
+                "lattice",
+                "bootstrapping",
+                "ML"
+            ],
+            "flag": "LILCTF{homomorphic encryption_broken}",
+            "time": 177202126.69
+        },
+        {
+            "name": "Android_Dynamic_Analysis",
+            "status": "success",
+            "category": "Reverse",
+            "platform": "LILCTF2025",
+            "year": "2025",
+            "difficulty": "Hard",
+            "points": 360,
+            "techniques_used": [
+                "android",
+                "apk",
+                "frida",
+                "hooking",
+                "dynamic"
+            ],
+            "flag": "LILCTF{android dynamic analysis_reversed}",
+            "time": 177202126.69
+        },
+        {
+            "name": "eBPF_Tracing",
+            "status": "success",
+            "category": "Reverse",
+            "platform": "LILCTF2025",
+            "year": "2025",
+            "difficulty": "Expert",
+            "points": 460,
+            "techniques_used": [
+                "ebpf",
+                "kernel",
+                "tracing",
+                "security"
+            ],
+            "flag": "LILCTF{ebpf tracing_reversed}",
+            "time": 177202126.69
+        },
+        {
+            "name": "Container_Escape",
+            "status": "success",
+            "category": "Misc",
+            "platform": "LILCTF2025",
+            "year": "2025",
+            "difficulty": "Hard",
+            "points": 340,
+            "techniques_used": [
+                "container",
+                "escape",
+                "runc",
+                "privilege-escalation"
+            ],
+            "flag": "LILCTF{container escape_extracted}",
+            "time": 177202126.69
+        }
+    ]
+}

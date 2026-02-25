@@ -1,0 +1,180 @@
+{
+    "system": "LILCTF2025 Training System",
+    "platform": "LILCTF2025",
+    "year": "2025",
+    "quality": "Expert/Cutting-Edge",
+    "total_challenges": 10,
+    "total_points": 4140,
+    "categories": {
+        "web_lilctf": [
+            {
+                "name": "Spring_Boot_Actuator",
+                "category": "Web",
+                "platform": "LILCTF2025",
+                "year": "2025",
+                "difficulty": "Hard",
+                "description": "Spring Boot Actuator exploitation",
+                "points": 350,
+                "techniques": [
+                    "spring-boot",
+                    "actuator",
+                    "RCE",
+                    "jolokia"
+                ],
+                "flag_format": "LILCTF{...}"
+            },
+            {
+                "name": "GraphQL_Injection",
+                "category": "Web",
+                "platform": "LILCTF2025",
+                "year": "2025",
+                "difficulty": "Expert",
+                "description": "GraphQL injection and introspection",
+                "points": 380,
+                "techniques": [
+                    "graphql",
+                    "injection",
+                    "introspection",
+                    "bypass"
+                ],
+                "flag_format": "LILCTF{...}"
+            },
+            {
+                "name": "WebAssembly_Vulnerability",
+                "category": "Web",
+                "platform": "LILCTF2025",
+                "year": "2025",
+                "difficulty": "Expert",
+                "description": "WebAssembly memory corruption",
+                "points": 400,
+                "techniques": [
+                    "wasm",
+                    "memory-corruption",
+                    "heap",
+                    "javascript"
+                ],
+                "flag_format": "LILCTF{...}"
+            }
+        ],
+        "pwn_lilctf": [
+            {
+                "name": "KASLR_Bypass",
+                "category": "Pwn",
+                "platform": "LILCTF2025",
+                "year": "2025",
+                "difficulty": "Expert",
+                "description": "Kernel Address Space Layout Randomization bypass",
+                "points": 420,
+                "techniques": [
+                    "kaslr",
+                    "kernel",
+                    "infoleak",
+                    "bypass"
+                ],
+                "flag_format": "LILCTF{...}"
+            },
+            {
+                "name": "Chrome_V8",
+                "category": "Pwn",
+                "platform": "LILCTF2025",
+                "year": "2025",
+                "difficulty": "Expert",
+                "description": "Chrome V8 engine exploitation",
+                "points": 500,
+                "techniques": [
+                    "v8",
+                    "javascript",
+                    "exploit",
+                    "browser"
+                ],
+                "flag_format": "LILCTF{...}"
+            }
+        ],
+        "crypto_lilctf": [
+            {
+                "name": "Zero_Knowledge_Proof",
+                "category": "Cryptography",
+                "platform": "LILCTF2025",
+                "year": "2025",
+                "difficulty": "Expert",
+                "description": "Zero-knowledge proof system attack",
+                "points": 450,
+                "techniques": [
+                    "zk-snark",
+                    "groth16",
+                    "bulletproofs"
+                ],
+                "flag_format": "LILCTF{...}"
+            },
+            {
+                "name": "Homomorphic_Encryption",
+                "category": "Cryptography",
+                "platform": "LILCTF2025",
+                "year": "2025",
+                "difficulty": "Expert",
+                "description": "Fully homomorphic encryption attack",
+                "points": 480,
+                "techniques": [
+                    "FHE",
+                    "lattice",
+                    "bootstrapping",
+                    "ML"
+                ],
+                "flag_format": "LILCTF{...}"
+            }
+        ],
+        "reverse_lilctf": [
+            {
+                "name": "Android_Dynamic_Analysis",
+                "category": "Reverse",
+                "platform": "LILCTF2025",
+                "year": "2025",
+                "difficulty": "Hard",
+                "description": "Android APK reverse engineering",
+                "points": 360,
+                "techniques": [
+                    "android",
+                    "apk",
+                    "frida",
+                    "hooking",
+                    "dynamic"
+                ],
+                "flag_format": "LILCTF{...}"
+            },
+            {
+                "name": "eBPF_Tracing",
+                "category": "Reverse",
+                "platform": "LILCTF2025",
+                "year": "2025",
+                "difficulty": "Expert",
+                "description": "eBPF program analysis and exploitation",
+                "points": 460,
+                "techniques": [
+                    "ebpf",
+                    "kernel",
+                    "tracing",
+                    "security"
+                ],
+                "flag_format": "LILCTF{...}"
+            }
+        ],
+        "misc_lilctf": [
+            {
+                "name": "Container_Escape",
+                "category": "Misc",
+                "platform": "LILCTF2025",
+                "year": "2025",
+                "difficulty": "Hard",
+                "description": "Container escape techniques",
+                "points": 340,
+                "techniques": [
+                    "container",
+                    "escape",
+                    "runc",
+                    "privilege-escalation"
+                ],
+                "flag_format": "LILCTF{...}"
+            }
+        ]
+    }
+}
