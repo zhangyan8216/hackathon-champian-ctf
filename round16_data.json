@@ -1,0 +1,155 @@
+{
+    "round": 16,
+    "platforms": [
+        "mystiz",
+        "securinets",
+        "angstromctf"
+    ],
+    "total_new_challenges": 8,
+    "total_new_points": 3810,
+    "timestamp": "2026-02-25 00:00:00",
+    "categories": {
+        "mystiz": {
+            "crypto": [
+                {
+                    "name": "Lattice_SVP_Estimate",
+                    "category": "Cryptography",
+                    "platform": "Mystiz",
+                    "year": "2023",
+                    "difficulty": "Expert",
+                    "points": 480,
+                    "techniques": [
+                        "lattice",
+                        "SVP",
+                        "estimate",
+                        "Hermite"
+                    ],
+                    "flag_format": "mystiz{...}"
+                }
+            ],
+            "pwn": [
+                {
+                    "name": "Linux_Kernel_Capability",
+                    "category": "Pwn",
+                    "platform": "Mystiz",
+                    "year": "2024",
+                    "difficulty": "Expert",
+                    "points": 530,
+                    "techniques": [
+                        "kernel",
+                        "capability",
+                        "privilege",
+                        "container"
+                    ],
+                    "flag_format": "mystiz{...}"
+                }
+            ],
+            "reverse": [
+                {
+                    "name": "Windows_Driver_Exploit",
+                    "category": "Reverse",
+                    "platform": "Mystiz",
+                    "year": "2023",
+                    "difficulty": "Expert",
+                    "points": 510,
+                    "techniques": [
+                        "Windows",
+                        "driver",
+                        "IOCTL",
+                        "overflow"
+                    ],
+                    "flag_format": "mystiz{...}"
+                }
+            ]
+        },
+        "securinets": {
+            "web": [
+                {
+                    "name": "SSTI_Jinja2_Polyglot",
+                    "category": "Web",
+                    "platform": "SecuriNets",
+                    "year": "2023",
+                    "difficulty": "Expert",
+                    "points": 460,
+                    "techniques": [
+                        "SSTI",
+                        "Jinja2",
+                        "polyglot",
+                        "WAF bypass"
+                    ],
+                    "flag_format": "securinets{...}"
+                }
+            ],
+            "misc": [
+                {
+                    "name": "Cloud_AWS_Metadata",
+                    "category": "Misc",
+                    "platform": "SecuriNets",
+                    "year": "2024",
+                    "difficulty": "Expert",
+                    "points": 400,
+                    "techniques": [
+                        "AWS",
+                        "metadata",
+                        "SSRF",
+                        "IAM"
+                    ],
+                    "flag_format": "securinets{...}"
+                }
+            ]
+        },
+        "angstromctf": {
+            "web": [
+                {
+                    "name": "GraphQL_Type_Confusion",
+                    "category": "Web",
+                    "platform": "AngstromCTF",
+                    "year": "2023",
+                    "difficulty": "Expert",
+                    "points": 440,
+                    "techniques": [
+                        "GraphQL",
+                        "type-confusion",
+                        "introspection",
+                        "injection"
+                    ],
+                    "flag_format": "angstrom{...}"
+                }
+            ],
+            "pwn": [
+                {
+                    "name": "Userfaultfd_Heap_UAF",
+                    "category": "Pwn",
+                    "platform": "AngstromCTF",
+                    "year": "2024",
+                    "difficulty": "Expert",
+                    "points": 520,
+                    "techniques": [
+                        "userfaultfd",
+                        "UAF",
+                        "heap",
+                        "race"
+                    ],
+                    "flag_format": "angstrom{...}"
+                }
+            ],
+            "crypto": [
+                {
+                    "name": "Post_Quantum_CRYSTALS_Dilithium",
+                    "category": "Cryptography",
+                    "platform": "AngstromCTF",
+                    "year": "2023",
+                    "difficulty": "Expert",
+                    "points": 470,
+                    "techniques": [
+                        "CRYSTALS",
+                        "Dilithium",
+                        "lattice",
+                        "signature"
+                    ],
+                    "flag_format": "angstrom{...}"
+                }
+            ]
+        }
+    }
+}
