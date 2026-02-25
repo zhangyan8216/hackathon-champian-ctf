@@ -1,0 +1,155 @@
+{
+    "round": 15,
+    "platforms": [
+        "zer0pts",
+        "pbctf",
+        "zeronights"
+    ],
+    "total_new_challenges": 8,
+    "total_new_points": 3700,
+    "timestamp": "2026-02-25 23:50:00",
+    "categories": {
+        "zer0pts": {
+            "web": [
+                {
+                    "name": "XSS_Document_Domain",
+                    "category": "Web",
+                    "platform": "zer0pts",
+                    "year": "2023",
+                    "difficulty": "Expert",
+                    "points": 480,
+                    "techniques": [
+                        "XSS",
+                        "document.domain",
+                        "CSP",
+                        "bypass"
+                    ],
+                    "flag_format": "zer0pts{...}"
+                }
+            ],
+            "pwn": [
+                {
+                    "name": "Userfaultfd_Syscall",
+                    "category": "Pwn",
+                    "platform": "zer0pts",
+                    "year": "2024",
+                    "difficulty": "Expert",
+                    "points": 520,
+                    "techniques": [
+                        "userfaultfd",
+                        "syscall",
+                        "fault",
+                        "arbitrary-write"
+                    ],
+                    "flag_format": "zer0pts{...}"
+                }
+            ],
+            "crypto": [
+                {
+                    "name": "Elliptic_Pairing",
+                    "category": "Cryptography",
+                    "platform": "zer0pts",
+                    "year": "2023",
+                    "difficulty": "Expert",
+                    "points": 460,
+                    "techniques": [
+                        "pairing",
+                        "ECC",
+                        "Miller",
+                        "Tate"
+                    ],
+                    "flag_format": "zer0pts{...}"
+                }
+            ]
+        },
+        "pbctf": {
+            "web": [
+                {
+                    "name": "GraphQL_N_Plus_One",
+                    "category": "Web",
+                    "platform": "PBCTF",
+                    "year": "2023",
+                    "difficulty": "Hard",
+                    "points": 420,
+                    "techniques": [
+                        "GraphQL",
+                        "N+1",
+                        "injection",
+                        "introspection"
+                    ],
+                    "flag_format": "pbctf{...}"
+                }
+            ],
+            "misc": [
+                {
+                    "name": "Cloud_Firewall_Bypass",
+                    "category": "Misc",
+                    "platform": "PBCTF",
+                    "year": "2024",
+                    "difficulty": "Expert",
+                    "points": 390,
+                    "techniques": [
+                        "cloud",
+                        "firewall",
+                        "bypass",
+                        "SSRF"
+                    ],
+                    "flag_format": "pbctf{...}"
+                }
+            ]
+        },
+        "zeronights": {
+            "pwn": [
+                {
+                    "name": "Linux_Kernel_Syscall",
+                    "category": "Pwn",
+                    "platform": "ZeroNights",
+                    "year": "2023",
+                    "difficulty": "Expert",
+                    "points": 510,
+                    "techniques": [
+                        "kernel",
+                        "syscall",
+                        "privilege",
+                        "exploit"
+                    ],
+                    "flag_format": "zeronights{...}"
+                }
+            ],
+            "reverse": [
+                {
+                    "name": "Android_NDK",
+                    "category": "Reverse",
+                    "platform": "ZeroNights",
+                    "year": "2024",
+                    "difficulty": "Expert",
+                    "points": 470,
+                    "techniques": [
+                        "Android",
+                        "NDK",
+                        "native",
+                        "so"
+                    ],
+                    "flag_format": "zeronights{...}"
+                }
+            ],
+            "crypto": [
+                {
+                    "name": "Lattice_Reduction",
+                    "category": "Cryptography",
+                    "platform": "ZeroNights",
+                    "year": "2023",
+                    "difficulty": "Expert",
+                    "points": 450,
+                    "techniques": [
+                        "lattice",
+                        "LLL",
+                        "BKZ",
+                        "CVP"
+                    ],
+                    "flag_format": "zeronights{...}"
+                }
+            ]
+        }
+    }
+}
