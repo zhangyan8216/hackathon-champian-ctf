@@ -1,0 +1,78 @@
+{
+    "system": "QWB Training System",
+    "platform": "QWB (\u5f3a\u7f51\u676f)",
+    "quality": "Expert/Top-Tier",
+    "total_challenges": 4,
+    "total_points": 1300,
+    "categories": {
+        "web_qwb": [
+            {
+                "name": "Easy_JS",
+                "category": "Web",
+                "platform": "QWB",
+                "year": "2023",
+                "difficulty": "Hard",
+                "description": "Advanced JavaScript exploitation",
+                "points": 200,
+                "techniques": [
+                    "javascript",
+                    "prototype-pollution",
+                    "rce"
+                ],
+                "flag_format": "qwb{...}"
+            },
+            {
+                "name": "PHP_Magic",
+                "category": "Web",
+                "platform": "QWB",
+                "year": "2022",
+                "difficulty": "Expert",
+                "description": "Complex PHP deserialization chain",
+                "points": 320,
+                "techniques": [
+                    "php",
+                    "deserialization",
+                    "pop-chain",
+                    "bypass"
+                ],
+                "flag_format": "qwb{...}"
+            }
+        ],
+        "pwn_qwb": [
+            {
+                "name": "House_Of_Orange",
+                "category": "Pwn",
+                "platform": "QWB",
+                "year": "2023",
+                "difficulty": "Expert",
+                "description": "Heap exploitation with glibc 2.34",
+                "points": 380,
+                "techniques": [
+                    "house-of-orange",
+                    "heap",
+                    "glibc",
+                    "IO-File"
+                ],
+                "flag_format": "qwb{...}"
+            }
+        ],
+        "crypto_qwb": [
+            {
+                "name": "Post_Quantum",
+                "category": "Cryptography",
+                "platform": "QWB",
+                "year": "2024",
+                "difficulty": "Expert",
+                "description": "Post-quantum cryptography attack",
+                "points": 400,
+                "techniques": [
+                    "post-quantum",
+                    "lattice",
+                    "code-based",
+                    "ML"
+                ],
+                "flag_format": "qwb{...}"
+            }
+        ]
+    }
+}

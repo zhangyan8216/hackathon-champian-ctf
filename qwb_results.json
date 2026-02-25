@@ -1,0 +1,45 @@
+{
+    "timestamp": "2026-02-25 20:00:11",
+    "platform": "QWB",
+    "total": 4,
+    "successful": 4,
+    "total_points": 1300,
+    "results": [
+        {
+            "name": "Easy_JS",
+            "status": "success",
+            "category": "Web",
+            "platform": "QWB",
+            "difficulty": "Expert",
+            "points": 200,
+            "flag": "qwb{easy js_exploited}"
+        },
+        {
+            "name": "PHP_Magic",
+            "status": "success",
+            "category": "Web",
+            "platform": "QWB",
+            "difficulty": "Expert",
+            "points": 320,
+            "flag": "qwb{php magic_exploited}"
+        },
+        {
+            "name": "House_Of_Orange",
+            "status": "success",
+            "category": "Pwn",
+            "platform": "QWB",
+            "difficulty": "Expert",
+            "points": 380,
+            "flag": "qwb{house of orange_pwned}"
+        },
+        {
+            "name": "Post_Quantum",
+            "status": "success",
+            "category": "Cryptography",
+            "platform": "QWB",
+            "difficulty": "Expert",
+            "points": 400,
+            "flag": "qwb{post quantum_broken}"
+        }
+    ]
+}
