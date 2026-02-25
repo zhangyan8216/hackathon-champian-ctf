@@ -1,0 +1,90 @@
+{
+    "round": 8,
+    "platforms": {
+        "AttackDefense": {
+            "description": "AttackDefense CTF \u5e73\u53f0",
+            "platform": "AttackDefense",
+            "challenges": [
+                {
+                    "name": "Basic_Web",
+                    "cat": "Web",
+                    "points": 40,
+                    "tech": [
+                        "SQLi"
+                    ]
+                },
+                {
+                    "name": "Forensics",
+                    "cat": "Misc",
+                    "points": 50,
+                    "tech": [
+                        "pcap"
+                    ]
+                },
+                {
+                    "name": "Crypto_Basic",
+                    "cat": "Crypto",
+                    "points": 60,
+                    "tech": [
+                        "basic"
+                    ]
+                }
+            ]
+        },
+        "HackTM": {
+            "description": "HackTM CTF (\u6269\u5c55)",
+            "platform": "HackTM",
+            "challenges": [
+                {
+                    "name": "Misc_Challenge",
+                    "cat": "Misc",
+                    "points": 80,
+                    "tech": [
+                        "advanced"
+                    ]
+                },
+                {
+                    "name": "PWN_Challenge",
+                    "cat": "pwn",
+                    "points": 120,
+                    "tech": [
+                        "heap"
+                    ]
+                }
+            ]
+        },
+        "TCTF": {
+            "description": "TCTF Taipei (\u53f0\u6e7e\u9ed1\u5ba2\u677e)",
+            "platform": "TCTF",
+            "challenges": [
+                {
+                    "name": "Web_Challenge",
+                    "cat": "Web",
+                    "points": 100,
+                    "tech": [
+                        "SSTI"
+                    ]
+                },
+                {
+                    "name": "Reverse",
+                    "cat": "Reverse",
+                    "points": 140,
+                    "tech": [
+                        "advanced"
+                    ]
+                },
+                {
+                    "name": "Crypto",
+                    "cat": "Crypto",
+                    "points": 120,
+                    "tech": [
+                        "lattice"
+                    ]
+                }
+            ]
+        }
+    },
+    "total_challenges": 8,
+    "total_points": 710,
+    "timestamp": "2026-02-25 21:03:45"
+}
