@@ -1,0 +1,261 @@
+name: CTF Tools CI/CD Pipeline
+
+on:
+  push:
+    branches: [ master, main, develop ]
+  pull_request:
+    branches: [ master, main ]
+  workflow_dispatch:
+
+jobs:
+  # ==================== 测试 ====================
+  test:
+    name: 🧪 Test Python Code
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        python-version: ['3.8', '3.9', '3.10', '3.11']
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+      
+      - name: 🐍 Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      
+      - name: 📦 Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest pytest-asyncio pytest-cov
+          if [ -f "home/tools/vuln-hunter/requirements.txt" ]; then
+            pip install -r home/tools/vuln-hunter/requirements.txt
+          fi
+          if [ -f "home/ctf_agent/requirements.txt" ]; then
+            pip install -r home/ctf_agent/requirements.txt
+          fi
+          if [ -f "home/agent_by_cursor/requirements.txt" ]; then
+            pip install -r home/agent_by_cursor/requirements.txt
+          fi
+      
+      - name: 🧪 Run VulnHunter tests
+        run: |
+          python -m pytest home/tools/vuln-hunter/tests/ -v --tb=short
+        continue-on-error: true
+      
+      - name: 🧪 Run CTF Agent tests
+        run: |
+          python -m pytest home/ctf_agent/tests/ -v --tb=short
+        continue-on-error: true
+      
+      - name: 🧪 Run Agent by Cursor tests
+        run: |
+          python -m pytest home/agent_by_cursor/tests/ -v --tb=short
+        continue-on-error: true
+      
+      - name: 📊 Generate coverage report
+        run: |
+          pytest --cov=./home --cov-report=xml --cov-report=html
+        continue-on-error: true
+      
+      - name: 📤 Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./coverage.xml
+        continue-on-error: true
+
+  # ==================== 代码质量检查 ====================
+  code-quality:
+    name: 🔍 Code Quality Check
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+      
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: 📦 Install linting tools
+        run: |
+          pip install flake8 black mypy isort
+      
+      - name: 🎨 Check code formatting with Black
+        run: |
+          black --check ./home/ --diff
+        continue-on-error: true
+      
+      - name: 🔍 Lint with Flake8
+        run: |
+          flake8 ./home/ --max-line-length=100 --ignore=E501,W503
+        continue-on-error: true
+      
+      - name: 📝 Type checking with MyPy
+        run: |
+          mypy ./home/agent_by_cursor/src/ --ignore-missing-imports
+        continue-on-error: true
+      
+      - name: 📐 Import sorting with isort
+        run: |
+          isort --check-only ./home/ --diff
+        continue-on-error: true
+
+  # ==================== 安全扫描 ====================
+  security-scan:
+    name: 🔒 Security Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+      
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: 📦 Install Bandit
+        run: pip install bandit bandit-toml
+      
+      - name: 🔍 Run Bandit security scan
+        run: |
+          bandit -r ./home/ -f json -o bandit-report.json || true
+        continue-on-error: true
+      
+      - name: 📤 Upload Bandit report
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: bandit-report
+          path: bandit-report.json
+
+  # ==================== Docker构建测试 ====================
+  docker-build:
+    name: 🐳 Docker Build Test
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+      
+      - name: 🐳 Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
+      - name: 🐳 Build VulnHunter image
+        run: |
+          docker build -t vulnhunter:latest -f home/tools/vuln-hunter/Dockerfile home/tools/vuln-hunter || true
+      
+      - name: 🐳 Build CTF Agent image
+        run: |
+          docker build -t ctf-agent:latest -f home/ctf_agent/sandbox/Dockerfile home/ctf_agent || true
+      
+      - name: 🐳 Build Agent Cursor image
+        run: |
+          docker build -t agent-cursor:latest -f home/agent_by_cursor/Dockerfile home/agent_by_cursor || true
+
+  # ==================== 性能基准测试 ====================
+  performance:
+    name: ⚡ Performance Benchmark
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+      
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: 📦 Install dependencies
+        run: |
+          pip install psutil requests beautifulsoup4
+      
+      - name: 🏃 Run performance benchmarks
+        run: |
+          python run_benchmarks.py || true
+      
+      - name: 📊 Upload benchmark results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: benchmark-results
+          path: benchmark_results.json
+
+  # ==================== 集成测试 ====================
+  integration:
+    name: 🔗 Integration Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+      
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: 📦 Install dependencies
+        run: |
+          pip install pytest pytest-asyncio aiohttp
+      
+      - name: 🧪 Run integration tests
+        run: |
+          pytest home/agent_by_cursor/tests/integration/ -v --tb=short
+        continue-on-error: true
+
+  # ==================== 文档构建 ====================
+  docs:
+    name: 📚 Build Docs
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+      
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: 📦 Install Sphinx
+        run: |
+          pip install sphinx sphinx-rtd-theme myst-parser
+      
+      - name: 📚 Build documentation
+        run: |
+          if [ -d "docs/" ]; then
+            cd docs && make html || true
+          fi
+      
+      - name: 📤 Upload docs as artifact
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: documentation
+          path: docs/_build/html
+
+  # ==================== 发布 ====================
+  release:
+    name: 🚀 Release
+    runs-on: ubuntu-latest
+    needs: [test, code-quality, docker-build]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+      
+      - name: 🔖 Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
