@@ -1,0 +1,135 @@
+version: '3.8'
+
+services:
+  # ==================== VulnHunter Enterprise ====================
+  vulnhunter:
+    build:
+      context: /home/tools/vuln-hunter
+      dockerfile: Dockerfile
+    container_name: vulnhunter
+    ports:
+      - "5001:5001"  # Web Dashboard
+    environment:
+      - LOG_LEVEL=INFO
+      - VULNHUNTER_API_KEY=${VULNHUNTER_API_KEY:-}
+    volumes:
+      - /home/tools/vuln-hunter/config:/app/config
+      - /home/tools/vuln-hunter/reports:/app/reports
+      - /home/tools/vuln-hunter/logs:/app/logs
+    networks:
+      - ctf-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ==================== CTF Agent ====================
+  ctf-agent:
+    build:
+      context: /home/ctf_agent
+      dockerfile: sandbox/Dockerfile
+    container_name: ctf-agent
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - LOG_LEVEL=INFO
+    volumes:
+      - /home/ctf_agent/knowledge:/app/knowledge
+      - /home/ctf_agent/memory:/app/memory
+      - /home/ctf_agent/config:/app/config
+      - /home/ctf_agent/challenges:/app/challenges
+    networks:
+      - ctf-network
+    restart: unless-stopped
+    command: python3 main.py --interactive
+
+  # ==================== Agent by Cursor + Team ====================
+  agent-cursor:
+    build:
+      context: /home/agent_by_cursor
+      dockerfile: Dockerfile
+    container_name: agent-cursor
+    ports:
+      - "8000:8000"  # Web Server
+      - "8001:8001"  # WebSocket Server
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - CTFD_BASE_URL=${CTFD_BASE_URL:-}
+      - CTFD_TOKEN=${CTFD_TOKEN:-}
+      - LOG_LEVEL=INFO
+      - WEB_PORT=8000
+      - WS_PORT=8001
+    volumes:
+      - /home/agent_by_cursor/knowledge:/app/knowledge
+      - /home/agent_by_cursor/memory:/app/memory
+      - /home/agent_by_cursor/config:/app/config
+      - /home/agent_by_cursor/cache:/app/cache
+    networks:
+      - ctf-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ==================== PostgreSQL (可选 - 用于持久化) ====================
+  postgres:
+    image: postgres:15-alpine
+    container_name: postgres
+    environment:
+      - POSTGRES_DB=ctf_tools
+      - POSTGRES_USER=ctf_user
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-ctf_password}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - ctf-network
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+  # ==================== Redis (可选 - 用于缓存) ====================
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    networks:
+      - ctf-network
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+  # ==================== Nginx (可选 - 反向代理) ====================
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - vulnhunter
+      - agent-cursor
+    networks:
+      - ctf-network
+    restart: unless-stopped
+
+networks:
+  ctf-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
